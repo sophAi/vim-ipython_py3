@@ -104,15 +104,12 @@ def km_from_string(s=''):
     or just 'kernel-12345.json' for IPython 0.12
     """
     try:
-        import IPython
+        import jupyter_client
     except ImportError:
-        raise ImportError("Could not find IPython. " + _install_instructions)
+        raise ImportError("Could not find jupyter_client. " + _install_instructions)
     from IPython.config.loader import KeyValueConfigLoader
     try:
-        from IPython.kernel import (
-            KernelManager,
-            find_connection_file,
-        )
+        from jupyter_client import KernelManager,find_connection_file
     except ImportError:
         #  IPython < 1.0
         from IPython.zmq.blockingkernelmanager import BlockingKernelManager as KernelManager
@@ -141,6 +138,8 @@ def km_from_string(s=''):
                 k = k.lstrip().rstrip() # kernel part of the string
                 p = p.lstrip().rstrip() # profile part of the string
                 fullpath = find_connection_file(k,p)
+            elif s == '':
+                fullpath = find_connection_file()
             else:
                 fullpath = find_connection_file(s.lstrip().rstrip())
         except IOError as e:
