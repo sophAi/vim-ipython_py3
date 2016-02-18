@@ -177,7 +177,7 @@ command! -nargs=0 IPythonTerminate :py terminate_kernel_hack()
 >>>>>>> 625b418fa807c587e8f0187d553284e33a63d5e0
 
 function! IPythonBalloonExpr()
-python << endpython
+python3 << endpython
 word = vim.eval('v:beval_text')
 reply = get_doc(word)
 vim.command("let l:doc = %s"% reply)
@@ -194,14 +194,14 @@ fun! CompleteIPython(findstart, base)
           let start -= 1
         endwhile
         echo start
-        python << endpython
+        python3 << endpython
 current_line = vim.current.line
 endpython
         return start
       else
         " find months matching with "a:base"
         let res = []
-        python << endpython
+        python3 << endpython
 base = vim.eval("a:base")
 findstart = vim.eval("a:findstart")
 matches = ipy_complete(base, current_line, vim.eval("col('.')"))
