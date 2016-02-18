@@ -77,12 +77,12 @@ endfun
 " buffer we may have opened up doesn't get closed just because of an idle
 " event (i.e. user pressed \d and then left the buffer that popped up, but
 " expects it to stay there).
-au CursorHold *.*,vim-ipython :python3 if update_subchannel_msgs(): echo("vim-ipython shell updated (on idle)",'Operator')
+au CursorHold *.*,vim-ipython :python3 if update_subchannel_msgs(): echo("vim-ipython shell updated (on idle)",'Operator') 
 
 " XXX: broken - cursor hold update for insert mode moves the cursor one
 " character to the left of the last character (update_subchannel_msgs must be
 " doing this)
-"au CursorHoldI *.* :python if update_subchannel_msgs(): echo("vim-ipython shell updated (on idle)",'Operator')
+"au CursorHoldI *.* :python3 if update_subchannel_msgs(): echo("vim-ipython shell updated (on idle)",'Operator')
 
 " Same as above, but on regaining window focus (mostly for GUIs)
 au FocusGained *.*,vim-ipython :python3 if update_subchannel_msgs(): echo("vim-ipython shell updated (on input focus)",'Operator')
