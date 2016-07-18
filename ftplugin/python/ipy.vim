@@ -77,11 +77,8 @@ endfun
 " buffer we may have opened up doesn't get closed just because of an idle
 " event (i.e. user pressed \d and then left the buffer that popped up, but
 " expects it to stay there).
-<<<<<<< HEAD
 au CursorHold *.*,vim-ipython :python3 if update_subchannel_msgs(): echo("vim-ipython shell updated (on idle)",'Operator') 
-=======
 au CursorHold *.*,vim-ipython :python3 if update_subchannel_msgs(): echo("vim-ipython shell updated (on idle)",'Operator')
->>>>>>> 625b418fa807c587e8f0187d553284e33a63d5e0
 
 " XXX: broken - cursor hold update for insert mode moves the cursor one
 " character to the left of the last character (update_subchannel_msgs must be
@@ -97,7 +94,6 @@ au BufEnter vim-ipython :python3 if update_subchannel_msgs(): echo("vim-ipython 
 
 " Setup plugin mappings for the most common ways to interact with ipython.
 noremap  <Plug>(IPython-RunFile)            :python3 run_this_file()<CR>
-<<<<<<< HEAD
 noremap  <Plug>(IPython-RunLine)            :python3 run_this_line()<CR>
 noremap  <Plug>(IPython-RunLines)           :python3 run_these_lines()<CR>
 noremap  <Plug>(IPython-OpenPyDoc)          :python3 get_doc_buffer()<CR>
@@ -108,7 +104,6 @@ noremap  <Plug>(IPython-ToggleReselect)     :python3 toggle_reselect()<CR>
 "noremap  <Plug>(IPython-BreakpointClear)    :python3 clear_breakpoint()<CR>
 "noremap  <Plug>(IPython-DebugThisFile)      :python3 run_this_file_pdb()<CR>
 "noremap  <Plug>(IPython-BreakpointClearAll) :python3 clear_all_breaks()<CR>
-=======
 noremap  <Plug>(IPython-RunLine)            :python3 run_this_line()<CR>
 noremap  <Plug>(IPython-RunLines)           :python3 run_these_lines()<CR>
 noremap  <Plug>(IPython-OpenPyDoc)          :python3 get_doc_buffer()<CR>
@@ -119,7 +114,6 @@ noremap  <Plug>(IPython-ToggleReselect)     :python3 toggle_reselect()<CR>
 "noremap  <Plug>(IPython-BreakpointClear)    :python3 clear_breakpoint()<CR>
 "noremap  <Plug>(IPython-DebugThisFile)      :python3 run_this_file_pdb()<CR>
 "noremap  <Plug>(IPython-BreakpointClearAll) :python3 clear_all_breaks()<CR>
->>>>>>> 625b418fa807c587e8f0187d553284e33a63d5e0
 noremap  <Plug>(IPython-ToggleSendOnSave)   :call <SID>toggle_send_on_save()<CR>
 noremap  <Plug>(IPython-PlotClearCurrent)   :python3 run_command("plt.clf()")<CR>
 noremap  <Plug>(IPython-PlotCloseAll)       :python3 run_command("plt.close('all')")<CR>
@@ -162,19 +156,16 @@ if g:ipy_perform_mappings != 0
 endif
 
 command! -nargs=* IPython :py3 km_from_string("<args>")
-<<<<<<< HEAD
 command! -nargs=0 IPythonClipboard :py3 km_from_string(vim.eval('@+'))
 command! -nargs=0 IPythonXSelection :py3 km_from_string(vim.eval('@*'))
 command! -nargs=* IPythonNew :py3 new_ipy("<args>")
 command! -nargs=* IPythonInterrupt :py3 interrupt_kernel_hack("<args>")
 command! -nargs=0 IPythonTerminate :py3 terminate_kernel_hack()
-=======
-command! -nargs=0 IPythonClipboard :py km_from_string(vim.eval('@+'))
-command! -nargs=0 IPythonXSelection :py km_from_string(vim.eval('@*'))
-command! -nargs=* IPythonNew :py new_ipy("<args>")
-command! -nargs=* IPythonInterrupt :py interrupt_kernel_hack("<args>")
-command! -nargs=0 IPythonTerminate :py terminate_kernel_hack()
->>>>>>> 625b418fa807c587e8f0187d553284e33a63d5e0
+command! -nargs=0 IPythonClipboard :py3 km_from_string(vim.eval('@+'))
+command! -nargs=0 IPythonXSelection :py3 km_from_string(vim.eval('@*'))
+command! -nargs=* IPythonNew :py3 new_ipy("<args>")
+command! -nargs=* IPythonInterrupt :py3 interrupt_kernel_hack("<args>")
+command! -nargs=0 IPythonTerminate :py3 terminate_kernel_hack()
 
 function! IPythonBalloonExpr()
 python3 << endpython
