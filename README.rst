@@ -25,18 +25,18 @@ are IPython 0.11 or newer with zeromq capabilities, vim compiled with +python.
 If you can launch ``ipython qtconsole`` or ``ipython kernel``, and
 ``:echo has('python')`` returns 1 in vim, you should be good to go.
 
------------------------------
-Python3 and Anaconda3 Support
------------------------------
+------------------------------
+Python3 and Anaconda3 Support:
+------------------------------
 Add ``alias ipy="jupyter console"`` in your .bashrc or .zshrc.
 
-Run `ipy` in another terminal first.
+Run ``ipy`` in another terminal first.
 
-Edit a python script using vim. In the command mode type `:IPython` to initiate the communication between vim and jupyter.
+Edit a python script using vim. In the command mode type ``:IPython`` to initiate the communication between vim and jupyter.
 
-Use `Ctrl+s` with visual mode to communicate with jupyter.
+Use ``Ctrl+s`` with visual mode to communicate with jupyter.
 
-Tested using Anaconda3.
+Tested with Anaconda3.
 
 (Update: 20160718)
 
